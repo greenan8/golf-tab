@@ -2,13 +2,38 @@ body{
     margin: 0;
     padding: 0;
     background-color: black;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
-section #history{
-    height: 0;
+section#history{
+    height:20vh;
     width: 100vw;
     margin: 0;
-    background: blue;
+    padding: 0.25vw;
+    display: none;
+}
+
+section#history div.row{
+    display: flex;
+    height: 100%;
+    width: 99.5vw
+}
+
+section#history div.column{
+    display: flex;
+    flex: 16vw;
+    position:relative;
+    margin: 0 0.125vw;
+    background-color: grey;
+}
+
+section#history div.column.left{
+    margin-left: 0;
+}
+
+section#history div.column.right{
+    margin-right: 0;
 }
 
 section#main { 
@@ -56,11 +81,17 @@ section#main div#top-bar div.right button:hover{
     background-color: rgba(0,0,0,0.25) 
 }
 
+section#main div#top-bar div.right button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
 section#main div#top-bar i{
     margin: 0;
     color: white;
-    font-size: 2.5em;
-    font-weight: 900;
+    font-size: 3em;
+    -webkit-text-stroke: 0.5px white;
+    text-shadow: 1px 0 5px black;
 }
 
 
@@ -73,6 +104,25 @@ section#main div.column {
     flex: 50%;
     position:relative;
 }
+
+.modal{
+    max-width: 40vw!important;
+}
+
+div#course-info div.centered{
+    text-align: center;
+    margin: 0;
+}
+
+div#course-info h1,h2,h3,h4{
+    margin: 0;
+    padding: 0.3rem;
+}
+
+div#course-info h3, h4, p {
+    font-weight: 300;
+}
+
 
 section#main div#bottom-bar{
     position:absolute; 
@@ -102,7 +152,7 @@ section#main div#bottom-bar div.right h1{
     font-size: 1.25rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    text-shadow: 4px 0 3px black;
+    text-shadow: 4px 0 4px black;
 }
 section#main div#bottom-bar div.right h2{
     margin: 0;
@@ -111,5 +161,5 @@ section#main div#bottom-bar div.right h2{
     font-size: 1.125rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    text-shadow: 3px 0 2px black;
+    text-shadow: 3px 0 3px black;
 }

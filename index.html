@@ -14,7 +14,16 @@
   </head>
 
 <body>
-   <section id="history"></section> 
+   <section id="history">
+       <div class="row">
+           <div class="column left"></div>
+           <div class="column"></div>
+           <div class="column"></div>
+           <div class="column"></div>
+           <div class="column"></div>
+           <div class="column right"></div>
+       </div>
+   </section> 
    <section id="main">
         <div id=top-bar class="row">
                 <div class="column">
@@ -23,17 +32,28 @@
                     </H1>
                 </div>
                 <div class="column right">
-                    <button><i class="las la-history"></i></button>
-                    <button><i class="las la-info-circle"></i></button>
-                </div>
+                    <button class="history"><i class="las la-history"></i></button>
+                    <button><a href="#course-info" rel="modal:open"><i class="las la-info-circle"></i></a></button>
+                </div>                
+            </div>
+        </div>
 
-          
+        <div id="course-info" class="modal">
+            <div class="centered">
+                <h1>1</h1>
+                <h2>Course Name</h2>
+                <h3>Course Location</h3>
+                <h4>Par: 72 | Yards: 7000</h4>
+                <hr>
+            </div>
+            <p>On a clear spring day, with Dundrum Bay to the east, the Mountains of Mourne to the south and gorse-covered dunes in golden bloom, there is no lovelier place in golf. The design is attributed to Old Tom Morris but was refined by half a dozen architects in the past 120 years, most recently by Donald Steel. Though the greens are surprisingly flat, as if to compensate for the rugged terrain and numerous blind shots, bunkers are a definite highlight, most with arched eyebrows of dense marram grasses and impenetrable clumps of heather.</p>
+            <div class="centered">
+                <hr>
+                <h4>Architects: Old Tom Morris (1889)</h4>
                 
             </div>
-
-
         </div>
-        <div id="info-popup"></div>
+  
         <div id=bottom-bar class="row">
             <div class="column">
                 <h3>Image Source: golfdigest.com</h3>
@@ -45,8 +65,23 @@
         </div>
    </section>
 
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js" integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
-   <script src="js/script.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+    </script>
+    
+   <script
+    src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+    crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+   
+    <script src="js/script.js"></script>
 </body>
 </html>
