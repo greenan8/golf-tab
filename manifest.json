@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "Golf Tab",
+    "description": "New tab override extension that displays an image of one of the world's top 100 golf courses on each new tab.",
+    "version": "1.0.0",
+    "default_locale": "en",
+    "icons": {"128": "img/icon_128.png"},
+    
+    "chrome_url_overrides" : {
+        "pageToOverride": "index.html"
+    }
+}

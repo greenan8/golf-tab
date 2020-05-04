@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+section #history{
+    height: 0;
+    width: 100vw;
+    margin: 0;
+    background: blue;
+}
+
+section#main { 
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    position: relative;
+
+    background: no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+section#main div#top-bar{
+    padding: 1.5rem 1rem 0 1rem;
+}
+
+section#main div#top-bar h1{
+    margin: 0;
+    color: white;
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+section#main div#top-bar h1 span.small{
+    font-weight: 300;
+}
+
+section#main div#top-bar div.right{
+    text-align: right;
+}
+
+section#main div#top-bar div.right button{
+    border: none;
+    background-color: transparent;
+    border-radius: 100%;
+    height: 3rem;
+    width: 3rem;
+}
+
+section#main div#top-bar div.right button:hover{
+    background-color: rgba(0,0,0,0.25) 
+}
+
+section#main div#top-bar i{
+    margin: 0;
+    color: white;
+    font-size: 2.5em;
+    font-weight: 900;
+}
+
+
+section#main div.row {
+    display: flex;
+    width: calc(100vw - 2rem);
+}
+  
+section#main div.column {
+    flex: 50%;
+    position:relative;
+}
+
+section#main div#bottom-bar{
+    position:absolute; 
+    bottom:0;
+    margin: 0;
+    padding: 0 1rem 1.5rem 1rem;
+}
+
+section#main div#bottom-bar h3{
+    margin: 0;
+    color: white;
+    font-size: 0.75rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300; 
+    position: absolute;
+    bottom: 0;
+}
+
+section#main div#bottom-bar div.right{
+    text-align: right;
+}
+
+section#main div#bottom-bar div.right h1{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-shadow: 4px 0 3px black;
+}
+section#main div#bottom-bar div.right h2{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 1.125rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-shadow: 3px 0 2px black;
+}
