@@ -1,3 +1,7 @@
+html{
+    background-color: black;  
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -26,6 +30,15 @@ section#history div.column{
     position:relative;
     margin: 0 0.125vw;
     background-color: grey;
+
+    
+    background-size: auto auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    opacity: 0.6;
 }
 
 section#history div.column.left{
@@ -162,4 +175,12 @@ section#main div#bottom-bar div.right h2{
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     text-shadow: 3px 0 3px black;
+}
+
+section#next-images{
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
