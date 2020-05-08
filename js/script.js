@@ -62,8 +62,8 @@ $(document).ready(function() {
     }
 
     //setup the current tab page with the current data
-    function setupPage(current, history=[], next=[], onload=true){
-    
+    function setupPage(current, history, next, onload=true){
+        
         $('#main').css('background-image', `url(${current.url})`);
         $(".course-name").text(current.name);
         $(".location").text(current.location);
@@ -120,10 +120,9 @@ $(document).ready(function() {
             $(this).css({"opacity": 1})
 
             let classes = $(this).attr('class');
-            let index= parseInt($(this).attr('class')[classes.length-1]) - 1
-
-            let history = localStorage.setItem("golfTabHistory", JSON.stringify(history))
-            setupPage(history[index])
+            let index = parseInt(classes[classes.length-1]) - 1;
+            let history = JSON.parse(localStorage.getItem("golfTabHistory"));
+            setupPage(history[index],[], [], false);
 
             $(this).css("opacity", 0.8)
         })
@@ -133,7 +132,11 @@ $(document).ready(function() {
         for(let h = 0; h < history.length; h++){
             $(`#history .column.${h+1}`).css('background-image', `url(${history[h].url})`); 
             $(`#history .column.${h+1}`).attr('title', `${history[h].rank}. ${history[h].name})`); 
-            $(`#history .column.${h+1}`).addClass("setup"); 
+            
+            var classes = $(`#history .column.${h+1}`).attr('class');
+            classes = "setup" +' ' +classes;
+            $(`#history .column.${h+1}`).attr('class', classes);
+            
         }
     }
 
@@ -200,7 +203,6 @@ $(document).ready(function() {
     let next = JSON.parse(localStorage.getItem('golfTabNext') || "[]");
     
     if(next.length > 0){
-        console.log(next[2])
         let current = next[next.length-1]
         setupPage(current, history, next)
     } else {
