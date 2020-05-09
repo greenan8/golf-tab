@@ -72,6 +72,7 @@ section#main div#top-bar h1{
     font-size: 2.5rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    text-shadow: 3px 0 6px black;
 }
 
 section#main div#top-bar h1 span.small{
@@ -150,12 +151,18 @@ section#main div#bottom-bar h3{
     font-size: 0.75rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300; 
+    text-shadow: 3px 0 5px black;
     position: absolute;
     bottom: 0;
 }
 
+section#main div#bottom-bar h3 a.source{
+    color: white;
+}
+
 section#main div#bottom-bar div.right{
     text-align: right;
+    transition: opacity 0.4s;
 }
 
 section#main div#bottom-bar div.right h1{

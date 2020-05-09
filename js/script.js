@@ -14,6 +14,8 @@ $(document).ready(function() {
     const db = firebase.firestore();
     const storage = firebase.storage();
 
+
+
     //define firebase functions needed
     async function getCourseByRank(rank) {
         const query = await db.collection('courses').where('rank', '==', rank).get();
@@ -61,16 +63,22 @@ $(document).ready(function() {
        }       
     }
 
-    //setup the current tab page with the current data
-    function setupPage(current, history, next, onload=true){
+
+
+
+    //Functions to setup new page
+    function setupPage(current, history, next, onload){
         
         $('#main').css('background-image', `url(${current.url})`);
+        $(".rank").text(current.rank);
         $(".course-name").text(current.name);
         $(".location").text(current.location);
         $(".par").text(current.par);
         $(".length").text(current.length);
         $(".description").text(current.description);
-        $(".source").text(current.image.source);
+        $(".descriptionSource").attr("href", current.descriptionSource);
+        $(".source").text(current.image.credit);
+        $(".source").attr("href", current.image.source);
 
         let architects = "";
         current.architects.forEach(a =>{
@@ -102,10 +110,14 @@ $(document).ready(function() {
         let timer = null
         $(document).mousemove(function(){
             $('#top-bar').fadeIn();
+            $('div#bottom-bar h3').fadeIn();
+            $('div#bottom-bar div.right').css('opacity', 1);
             clearTimeout(timer); // Reset the timer
             timer = setTimeout(function(){
                 $('#top-bar').fadeOut();
-            }, 2500);
+                $('div#bottom-bar h3').fadeOut();
+                $('div#bottom-bar div.right').css('opacity', 0.3);
+            }, 3000);
         });
 
         $(document).on('mouseover', "#history .setup", function() {
@@ -140,15 +152,15 @@ $(document).ready(function() {
         }
     }
 
+
+
+    //functions to setup history in local storage
     function updateStorage(current, history, next){
 
         history.unshift(current);
-        if(history && history.length > 6){
-            history = history.slice(0,6);
-        }
-        
+        history.length = Math.min(history.length, 6);
         localStorage.setItem("golfTabHistory", JSON.stringify(history));
-        setupHistory(history)
+        setupHistory(history);
 
         if(next && next.length == 3){
             getRandomRank(history, next).then(rank=>{
@@ -158,7 +170,7 @@ $(document).ready(function() {
                     getCourseImage(data.image.link).then(url=>{
                         data.url = url;
                         next.unshift(data);
-                        next.slice(0,3);
+                        next.length = 3;
                         localStorage.setItem("golfTabNext", JSON.stringify(next));
                         $("img#next-1").attr("src", next[0].url);
                         $("img#next-2").attr("src", next[1].url);
@@ -170,7 +182,6 @@ $(document).ready(function() {
             });      
         }else{
             next = []
-
             for(let x = 0; x < 3; x++){
                 getRandomRank(history, next).then(rank=>{
                     getCourseByRank(rank).then((data)=>{
@@ -179,7 +190,7 @@ $(document).ready(function() {
                         getCourseImage(data.image.link).then(url=>{
                             data.url = url;
                             next.unshift(data);
-                            next.slice(0,3);
+                            next.length = Math.min(next.length, 3);
                             $(`img#next-${x+1}`).attr("src", next[x].url);
                             localStorage.setItem("golfTabNext", JSON.stringify(next));
                         })
@@ -189,36 +200,43 @@ $(document).ready(function() {
                 });      
             }
         }
-          
-        
+    }
 
 
+    //function for handling any errors that inhibit page setup
+    function handleWithBackup(history, next){
+            setupPage(backup, history, next, true);
     }
 
 
 
-
-    //grab any local storage history
+    //grab local storage and excuted page setup
     let history = JSON.parse(localStorage.getItem('golfTabHistory') || "[]");
     let next = JSON.parse(localStorage.getItem('golfTabNext') || "[]");
     
     if(next.length > 0){
         let current = next[next.length-1]
-        setupPage(current, history, next)
+        try{
+            setupPage(current, history, next, true)
+        }catch(error){
+            console.log(`Error: ${error}`)
+            handleWithBackup(history, next);
+        }
+        
     } else {
-        next = [];
-
+      
         getRandomRank(history, next).then(rank=>{
             getCourseByRank(rank).then((data)=>{
                 const random = Math.floor(Math.random()*data.images.length);
                 data.image = data.images[random];
                 getCourseImage(data.image.link).then(url=>{
                     data.url = url;
-                    setupPage(data, history, next);
+                    setupPage(data, history, next, true);
                 })
             })
         }).catch(error=>{
             console.log(`Error: ${error}`)
+            handleWithBackup(history, next);
         });      
     } 
 });

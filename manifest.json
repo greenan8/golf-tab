@@ -4,9 +4,9 @@
     "description": "New tab override extension that displays an image of one of the world's top 100 golf courses on each new tab.",
     "version": "1.0.0",
     "content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
-    "icons": {  "16": "icon16.png",
-                "48": "icon48.png",
-                "128": "icon128.png" },
+    "icons": {  "16": "img/icon16.png",
+                "48": "img/icon48.png",
+                "128": "img/icon128.png" },
     
     "chrome_url_overrides" : {
         "newtab": "index.html"
