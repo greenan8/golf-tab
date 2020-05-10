@@ -4,6 +4,10 @@ Google chrome extension that displays and image of one of the world's top 100 go
 ## Screenshots ##
 <img src = "https://github.com/greenan8/golf-tab/blob/master/screenshots/Screen%20Shot%202020-05-09%20at%208.33.27%20PM.png?raw=true" width ="250" /> <img src = "https://github.com/greenan8/golf-tab/blob/master/screenshots/Screen%20Shot%202020-05-09%20at%208.33.54%20PM.png?raw=true" width ="250" /> <img src = "https://github.com/greenan8/golf-tab/blob/master/screenshots/Screen%20Shot%202020-05-09%20at%208.34.03%20PM.png?raw=true" width ="250" />
 
+## Access ##
+* Download: https://chrome.google.com/webstore/detail/golf-tab/ifeobecpdbndpigbnblchdbobojcppmh
+* View Live: https://golf-tab.andrewgreenan.com/
+
 ## Objectives ##
 #### Current Objectives #### 
 * New tab override extension that displays an image of one of the world's top 100 golf courses on each new tab.
