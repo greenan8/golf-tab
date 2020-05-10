@@ -53,7 +53,7 @@ $(document).ready(function() {
         
         if(usedRanks.length > 0 && courseCount > usedRanks.length){
             let num = usedRanks[0]
-            while(historyRanks.includes(num)){
+            while(usedRanks.includes(num)){
                 num = Math.floor(Math.random()*courseCount) + 1
             }
             return num
