@@ -6,12 +6,12 @@ Google chrome extension that displays and image of one of the world's top 100 go
 
 ## Objectives ##
 #### Current Objectives #### 
-* Develop a new tab chrome extension displaying a random select between the top 100 golf courses.
+* New tab override extension that displays an image of one of the world's top 100 golf courses on each new tab.
 * Implement JavaScript promises when calling upon Firebase data.
 * Publish the extension in the Google Chrome Store
 
 ## Technology Stack ##
-#### HTML CSS & JavaScript ####
+#### HTML, CSS & JavaScript ####
 
 #### Firebase ####
 * https://firebase.google.com/
